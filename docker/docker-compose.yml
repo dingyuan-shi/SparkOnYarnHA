@@ -1,0 +1,152 @@
+version: "3"
+
+services:
+  zk1:
+    image: zookeeper:3.5.6
+    container_name: zk1
+    hostname: zk1
+    restart: always
+    environment:
+      ZOO_MY_ID: 1
+      ZOO_SERVERS: server.1=zk1:2888:3888;2181 server.2=zk2:2888:3888;2181 server.3=zk3:2888:3888;2181
+    env_file:
+      - ./zookeeper.env
+    
+  zk2:
+    image: zookeeper:3.5.6
+    container_name: zk2
+    hostname: zk2
+    restart: always
+    environment:
+      ZOO_MY_ID: 2
+      ZOO_SERVERS: server.1=zk1:2888:3888;2181 server.2=zk2:2888:3888;2181 server.3=zk3:2888:3888;2181
+    env_file:
+      - ./zookeeper.env
+
+  zk3:
+    image: zookeeper:3.5.6
+    container_name: zk3
+    hostname: zk3
+    restart: always
+    environment:
+      ZOO_MY_ID: 3
+      ZOO_SERVERS: server.1=zk1:2888:3888;2181 server.2=zk2:2888:3888;2181 server.3=zk3:2888:3888;2181
+    env_file:
+      - ./zookeeper.env
+
+  nn1:
+    image: hdfs/namenode
+    container_name: nn1
+    hostname: nn1
+    restart: always
+    environment:
+      NN_ID: 1
+      OTHER_NN: nn2 nn3
+    # volumes:
+    #   - ../runData/nn1/:/usr/local/hadoop/data/
+    ports:
+       - 9870:9870
+    deploy:
+      resources:
+         limits:
+            cpus: "2.00"
+            memory: 5G
+  
+  nn2:
+    image: hdfs/namenode
+    container_name: nn2
+    hostname: nn2
+    restart: always
+    environment:
+      NN_ID: 2
+    # volumes:
+    #   - ../runData/nn2/:/usr/local/hadoop/data/
+    deploy:
+      resources:
+         limits:
+            cpus: "2.00"
+            memory: 5G
+  nn3:
+    image: hdfs/namenode
+    container_name: nn3
+    hostname: nn3
+    restart: always
+    environment:
+      NN_ID: 3
+    # volumes:
+    #   - ../runData/nn3/:/usr/local/hadoop/data/
+    deploy:
+      resources:
+         limits:
+            cpus: "2.00"
+            memory: 5G
+  dn1:
+    image: hdfs/datanode
+    container_name: dn1
+    hostname: dn1
+    restart: always
+    environment:
+      NAMENODES: nn1 nn2 nn3
+      DN_ID: 1
+    volumes:
+      # - ../runData/dn1/:/usr/local/hadoop/data/
+      - ../exchange/data:/data  # use for exchange data from host machine to container
+    deploy:
+      resources:
+         limits:
+            cpus: "2.00"
+            memory: 5G
+
+  dn2:
+    image: hdfs/datanode
+    container_name: dn2
+    hostname: dn2
+    restart: always
+    environment:
+      NAMENODES: nn1 nn2 nn3
+    # volumes:
+    #   - ../runData/dn2/:/usr/local/hadoop/data/
+    deploy:
+      resources:
+         limits:
+            cpus: "2.00"
+            memory: 5G
+
+  rm1:
+    image: yarn/resourcemanager
+    container_name: rm1
+    hostname: rm1
+    restart: always
+    ports:
+      - 8088:8088
+      - 8042:8042
+    deploy:
+      resources:
+         limits:
+            cpus: "2.00"
+            memory: 5G
+  rm2:
+    image: yarn/resourcemanager
+    container_name: rm2
+    hostname: rm2
+    restart: always
+    ports:
+      - 8089:8088
+      - 8043:8042
+    deploy:
+      resources:
+         limits:
+            cpus: "2.00"
+            memory: 5G
+  sc:
+    image: env/sparkclient
+    container_name: sc
+    hostname: sc
+    restart: always
+    volumes:
+      - ../exchange/code:/jars
+
+networks:
+  default:
+    driver: bridge
+  
