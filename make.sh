@@ -4,10 +4,10 @@ DIR="`dirname $0`"
 case $1 in
     "clean")
         # clear old containers
-        docker rm -f $(docker ps -a | grep -E "hdfs/namenode|hdfs/datanode|yarn/resourcemanager|zookeeper|env/sparkclient" | awk '{print $1}')
+        docker rm -f $(docker ps -a | grep -E "hdfs/namenode|hdfs/datanode|yarn/resourcemanager|yarn/nodemanager|zookeeper|env/sparkclient|env/hadoop|env/base" | awk '{print $1}')
         if [ "$2a" = "-fa" ]; then
             # clear old images
-            docker rmi -f hdfs/namenode hdfs/datanode yarn/resourcemanager env/sparkclient env/hadoop env/base
+            docker rmi -f hdfs/namenode hdfs/datanode yarn/resourcemanager yarn/nodemanager env/sparkclient env/hadoop env/base
             # clear old volumes
             docker volume prune -f
             rm -rf $DIR/runData
