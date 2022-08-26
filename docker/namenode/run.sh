@@ -7,7 +7,7 @@ while [ $(curl zk1:8080/commands/stat -s | grep -cE "follower|leader") -ne 1 ];d
 done
 hdfs --daemon start journalnode
 if [ $NN_ID -eq 1 ];then
-    hdfs namenode -format
+    echo Y | hdfs namenode -format
     hdfs --daemon start namenode
     echo "namenodestart" >> /b.tag
     # ensure all other namenode is ready
@@ -29,8 +29,8 @@ else
         echo .
         sleep 2
     done
-    hdfs namenode -bootstrapStandby
-    hdfs --daemon start namenode
+    echo Y | hdfs namenode -bootstrapStandby
+    echo Y | hdfs --daemon start namenode
     echo "finish" >> /b.tag
 fi
 

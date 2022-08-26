@@ -1,39 +1,48 @@
+
 Host nn1
   HostName nn1
   User root
-  IdentityFile "/root/.ssh/ssh_host_ecdsa_key" 
+  IdentityFile "/root/.ssh/ssh_host_ecdsa_key"
+          
 
 Host nn2
   HostName nn2
   User root
-  IdentityFile "/root/.ssh/ssh_host_ecdsa_key" 
+  IdentityFile "/root/.ssh/ssh_host_ecdsa_key"
+          
 
 Host nn3
   HostName nn3
   User root
-  IdentityFile "/root/.ssh/ssh_host_ecdsa_key" 
+  IdentityFile "/root/.ssh/ssh_host_ecdsa_key"
+          
 
 Host dn1
   HostName dn1
   User root
-  IdentityFile "/root/.ssh/ssh_host_ecdsa_key" 
+  IdentityFile "/root/.ssh/ssh_host_ecdsa_key"
+          
 
 Host dn2
   HostName dn2
   User root
-  IdentityFile "/root/.ssh/ssh_host_ecdsa_key" 
+  IdentityFile "/root/.ssh/ssh_host_ecdsa_key"
+          
 
 Host dn3
   HostName dn3
   User root
-  IdentityFile "/root/.ssh/ssh_host_ecdsa_key" 
+  IdentityFile "/root/.ssh/ssh_host_ecdsa_key"
+          
 
 Host rm1
   HostName rm1
   User root
-  IdentityFile "/root/.ssh/ssh_host_ecdsa_key" 
+  IdentityFile "/root/.ssh/ssh_host_ecdsa_key"
+          
 
 Host rm2
   HostName rm2
   User root
-  IdentityFile "/root/.ssh/ssh_host_ecdsa_key" 
+  IdentityFile "/root/.ssh/ssh_host_ecdsa_key"
+          

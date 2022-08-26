@@ -34,14 +34,6 @@
     <value>false</value>
 </property>
 <property>
-   <name>yarn.scheduler.capacity.root.support.user-limit-factor</name>
-   <value>2</value>
-</property>
-<property>
-   <name>yarn.nodemanager.disk-health-checker.min-healthy-disks</name>
-   <value>0.0</value>
-</property>
-<property>
     <name>yarn.acl.enable</name>
     <value>0</value>
 </property>

@@ -1,2 +1,1 @@
-resources/*.tar.gz
-resources/*.tgz
+./runData/**/**

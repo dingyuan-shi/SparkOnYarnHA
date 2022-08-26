@@ -2,8 +2,9 @@ FROM env/hadoop
 LABEL author="Dingyuan Shi" 
 
 # install spark
-COPY spark-3.3.0-bin-without-hadoop.tgz /
-RUN tar zxvf /spark-3.3.0-bin-without-hadoop.tgz -C /usr/local \
+
+RUN curl https://mirrors.aliyun.com/apache/spark/spark-3.3.0/spark-3.3.0-bin-without-hadoop.tgz -o /spark-3.3.0-bin-without-hadoop.tgz \
+    && tar zxvf /spark-3.3.0-bin-without-hadoop.tgz -C /usr/local \
     && mv /usr/local/spark-3.3.0-bin-without-hadoop  /usr/local/spark \
     && rm -f /spark-3.3.0-bin-without-hadoop.tgz
 ENV SPARK_HOME /usr/local/spark

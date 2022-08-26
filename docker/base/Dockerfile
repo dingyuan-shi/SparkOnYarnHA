@@ -10,8 +10,8 @@ RUN sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-*  \
     && yum clean all
 
 # install java
-COPY openlogic-openjdk-8u262-b10-linux-x64.tar.gz  /
-RUN tar -zxf /openlogic-openjdk-8u262-b10-linux-x64.tar.gz -C /usr/local/  \ 
+RUN curl https://builds.openlogic.com/downloadJDK/openlogic-openjdk/8u262-b10/openlogic-openjdk-8u262-b10-linux-x64.tar.gz -o /openlogic-openjdk-8u262-b10-linux-x64.tar.gz  \
+        && tar -zxf /openlogic-openjdk-8u262-b10-linux-x64.tar.gz -C /usr/local/  \ 
         && mv /usr/local/openlogic-openjdk-8u262-b10-linux-64 /usr/local/jdk8   \ 
         && rm -f /usr/local/jdk8/src.zip \
         && rm /openlogic-openjdk-8u262-b10-linux-x64.tar.gz

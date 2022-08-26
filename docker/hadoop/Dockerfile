@@ -2,8 +2,8 @@ FROM env/base
 LABEL author="Dingyuan Shi"
 
 # install hadoop
-COPY hadoop-3.2.3.tar.gz  /
-RUN tar -zxf /hadoop-3.2.3.tar.gz -C /usr/local/  \
+RUN  curl https://mirrors.aliyun.com/apache/hadoop/common/hadoop-3.2.3/hadoop-3.2.3.tar.gz -o /hadoop-3.2.3.tar.gz \ 
+        && tar -zxf /hadoop-3.2.3.tar.gz -C /usr/local/  \
         && mv /usr/local/hadoop-3.2.3 /usr/local/hadoop  \ 
         && rm /hadoop-3.2.3.tar.gz  \
         && rm -rf /usr/local/hadoop/share/doc \
