@@ -14,6 +14,7 @@ case $1 in
         fi
     ;;
     "build")
+        python $DIR/conf/generator.py
         set -e
         # distributed confs and resources
         cp $DIR/conf/ssh/ssh_config $DIR/docker/base/
@@ -39,9 +40,8 @@ case $1 in
     "gen")  python $DIR/conf/generator.py
     ;;
     "up")
-        python $DIR/conf/generator.py
         docker-compose -f $DIR/docker/docker-compose.yml --compatibility up
     ;;
-    *)  echo "illegal argument, please use fetch|clean [-f]|build|gen|up"
+    *)  echo "illegal argument, please use: clean [-f]|build|gen|up"
     ;;
 esac

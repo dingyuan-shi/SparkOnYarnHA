@@ -34,8 +34,8 @@ if success, you will see
 ## use make.sh to manage cluster
 - ./make clean: clean all old docker containers
 - ./make clean -f: clean all old docker containers, images and volumes
-- ./make build: build all images
-- ./make up: start the cluster (will genenrate docker-compose.yml and ssh_config automatically first)
+- ./make build: build all images (will genenrate docker-compose.yml and ssh_config automatically first)
+- ./make up: start the cluster
 - ./make gen: genenerate docker-compose.yml and ssh_config automatically
 
 ## use /exchange to manage data and code
@@ -59,3 +59,5 @@ NUM_ZKSERVERS, NUM_NAMENODES, NUM_RESOURCEMANAGERS, NUM_DATANODES, NUM_NODEMANAG
 - nodemanager services will be named as nm1, nm2, ...
 
 Users need to ensure that configurations in hadoop/ are align with the above names and do not config ssh mannually.
+
+Once you change the configurations, please rebuild images.
