@@ -3,7 +3,7 @@ This repository helps to quickly deploy a spark-on-yarn system which runs on mul
 
 The yarn and hdfs are built in high availablity mode.
 
-![](./assets/framework.png)
+![check ./assets/framework.png](https://github.com/sdycodes/SparkOnYarnHA/blob/main/.assets/framework.png)
 
 # Quick Start
 ```bash
@@ -38,7 +38,7 @@ if success, you will see
 - ./make up: start the cluster (will genenrate docker-compose.yml and ssh_config automatically first)
 - ./make gen: genenerate docker-compose.yml and ssh_config automatically
 
-## use /exchange to manager data and code
+## use /exchange to manage data and code
 - The directory /exchange/data will be mounted at dn1:/data and user can use hadoop fs -put /data/* / to upload to HDFS.
 - The directory /exchange/code will be mounted at sc:/code and user can submit task from it.
 
