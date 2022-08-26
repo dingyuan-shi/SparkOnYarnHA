@@ -1,1 +1,4 @@
-./runData/**/**
+/runData/**/**
+/exchange/code/**
+/exchange/data/**
+!*.gitkeep
