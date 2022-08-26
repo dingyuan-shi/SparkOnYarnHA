@@ -3,7 +3,7 @@ This repository helps to quickly deploy a spark-on-yarn system which runs on mul
 
 The yarn and hdfs are built in high availablity mode.
 
-![check ./assets/framework.png](https://github.com/sdycodes/SparkOnYarnHA/blob/main/.assets/framework.png)
+![check .assets/framework.png](.assets/framework.png)
 
 # Quick Start
 ```bash
