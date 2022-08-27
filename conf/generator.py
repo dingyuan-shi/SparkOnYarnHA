@@ -67,7 +67,6 @@ for i in range(1, conf_dict["NUM_RESOURCEMANAGERS"] + 1):
     restart: always
     ports:
       - {8088 + i - 1}:8088
-      - {8042 + i - 1}:8042
           """)
 
 # gen datanodes
@@ -98,6 +97,8 @@ for i in range(1, conf_dict["NUM_NODEMANAGERS"] + 1):
     restart: always
     environment:
       RESOURCEMANAGERS: {resourcemanagers}
+    ports:
+      - {8042 + i - 1}:8042
     deploy:
       resources:
           limits:

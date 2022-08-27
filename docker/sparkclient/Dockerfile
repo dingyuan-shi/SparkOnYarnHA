@@ -10,7 +10,7 @@ ENV SPARK_HOME /usr/local/spark
 ENV PATH $SPARK_HOME/bin:$SPARK_HOME/sbin:$PATH
 
 # install python and pyspark
-RUN yum -y install python36 && pip3 install pyspark
+RUN yum -y install python36 && pip3 install pyspark -i https://pypi.tuna.tsinghua.edu.cn/simple
 # config spark
 COPY spark-defaults.conf /usr/local/spark/conf/
 COPY spark-env.sh /usr/local/spark/conf/

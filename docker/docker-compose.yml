@@ -86,7 +86,6 @@ services:
     restart: always
     ports:
       - 8088:8088
-      - 8042:8042
           
 
   rm2:
@@ -96,7 +95,6 @@ services:
     restart: always
     ports:
       - 8089:8088
-      - 8043:8042
           
 
   dn1:
@@ -145,6 +143,8 @@ services:
     restart: always
     environment:
       RESOURCEMANAGERS: rm1 rm2
+    ports:
+      - 8042:8042
     deploy:
       resources:
           limits:
@@ -159,6 +159,8 @@ services:
     restart: always
     environment:
       RESOURCEMANAGERS: rm1 rm2
+    ports:
+      - 8043:8042
     deploy:
       resources:
           limits:
@@ -173,6 +175,8 @@ services:
     restart: always
     environment:
       RESOURCEMANAGERS: rm1 rm2
+    ports:
+      - 8044:8042
     deploy:
       resources:
           limits:
@@ -187,6 +191,8 @@ services:
     restart: always
     environment:
       RESOURCEMANAGERS: rm1 rm2
+    ports:
+      - 8045:8042
     deploy:
       resources:
           limits:
@@ -201,6 +207,8 @@ services:
     restart: always
     environment:
       RESOURCEMANAGERS: rm1 rm2
+    ports:
+      - 8046:8042
     deploy:
       resources:
           limits:
