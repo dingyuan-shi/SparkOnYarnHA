@@ -3,7 +3,7 @@ This repository helps to quickly deploy a spark-on-yarn system which runs on mul
 
 The yarn and hdfs are built in high availablity mode.
 
-![check .assets/framework.png](.assets/framework.png)
+![check .assets/framework.jpg](.assets/framework.jpg)
 
 # Quick Start
 ```bash
@@ -41,6 +41,13 @@ if success, you will see
 ## use /exchange to manage data and code
 - The directory /exchange/data will be mounted at dn1:/data and user can use hadoop fs -put /data/* / to upload to HDFS.
 - The directory /exchange/code will be mounted at sc:/code and user can submit task from it.
+
+## use send2cluster.sh to quickly submit your jar
+specify the deploy directory at DEPLOY_PATH and SRC_DATA_PATH and put the shell script in the same directory of pom.xml, then use
+```bash
+$ ./send2cluster.sh main.ClassName param1 param2 
+```
+It will automatically package a jar and copy it together with data to the above exchange directory, the execute the main class with parameters.
 
 # configurations
 All configurations are put in /conf, wherein the file cluster.conf configs the numbers of different services
