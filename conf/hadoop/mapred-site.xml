@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<configuration>
+	<property>
+		<name>mapreduce.framework.name</name>
+		<value>yarn</value>
+	</property>
+	<!-- 历史日志服务jobhistory相关配置 -->
+	<property>
+		<name>mapreduce.jobhistory.address</name>
+		<value>hs:10020</value>
+	</property>
+	<property>
+		<name>mapreduce.jobhistory.webapp.address</name>
+		<value>http://hs:19888</value>
+	</property>
+</configuration>

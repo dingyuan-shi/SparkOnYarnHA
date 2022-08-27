@@ -117,6 +117,21 @@ print(f"""
       - ../exchange/code:/jars
     """)
 
+# gen spark history server
+datanodes = " ".join([f"dn{i}" for i in range(1, conf_dict["NUM_DATANODES"] + 1)])
+print(f"""
+  hs:
+    image: spark/historyserver
+    container_name: hs
+    hostname: hs
+    restart: always
+    environment:
+      DATANODES: {datanodes}
+    ports:
+      - 18080:18080
+      - 19888:19888
+    """)
+
 # gen network
 print(f"""
 networks:
