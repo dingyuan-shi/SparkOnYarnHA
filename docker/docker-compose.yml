@@ -217,7 +217,7 @@ services:
     
 
   sc:
-    image: env/sparkclient
+    image: spark/sparkclient
     container_name: sc
     hostname: sc
     restart: always

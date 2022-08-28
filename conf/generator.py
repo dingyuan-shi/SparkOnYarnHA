@@ -109,7 +109,7 @@ for i in range(1, conf_dict["NUM_NODEMANAGERS"] + 1):
 # gen spark client
 print(f"""
   sc:
-    image: env/sparkclient
+    image: spark/sparkclient
     container_name: sc
     hostname: sc
     restart: always
