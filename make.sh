@@ -14,8 +14,8 @@ case $1 in
         fi
     ;;
     "build")
-        python $DIR/conf/generator.py
         set -e
+        python $DIR/conf/generator.py
         # distributed confs and resources
         cp $DIR/conf/ssh/ssh_config $DIR/docker/base/
         cp $DIR/conf/hadoop/*.xml $DIR/docker/hadoop/
