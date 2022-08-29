@@ -1,4 +1,5 @@
 /runData/**/**
 /exchange/code/**
 /exchange/data/**
+/docker/docker-compose.yml
 !*.gitkeep
