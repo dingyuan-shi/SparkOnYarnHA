@@ -32,11 +32,11 @@ if success, you will see
 
 # Instructions
 ## Use make.sh to manage cluster
-- ./make clean: clean all old docker containers
-- ./make clean -f: clean all old docker containers, images and volumes
-- ./make build: build all images (will genenrate docker-compose.yml and ssh_config automatically first)
-- ./make up: start the cluster
-- ./make gen: genenerate docker-compose.yml and ssh_config automatically
+- ./make.sh clean: clean all old docker containers
+- ./make.sh clean -f: clean all old docker containers, images and volumes
+- ./make.sh build: build all images (will genenrate docker-compose.yml and ssh_config automatically first)
+- ./make.sh up: start the cluster
+- ./make.sh gen: genenerate docker-compose.yml and ssh_config automatically
 
 ## Use /exchange to manage data and code
 - The directory /exchange/data will be mounted at dn1:/data and user can use hadoop fs -put /data/* / to upload to HDFS.
